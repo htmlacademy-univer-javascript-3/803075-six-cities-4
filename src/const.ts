@@ -8,3 +8,35 @@ export const Settings = {
   placesCount: 250,
 } as const;
 
+export enum CardType {
+  favourites = 'favorites__card',
+  nearest = 'near-places__card',
+  regular = 'cities__card',
+}
+
+export const Cities = [
+  {
+    name: 'Paris',
+    id: 1,
+  },
+  {
+    name: 'Cologne',
+    id: 2,
+  },
+  {
+    name: 'Brussels',
+    id: 3,
+  },
+  {
+    name: 'Amsterdam',
+    id: 4,
+  },
+  {
+    name: 'Hamburg',
+    id: 5,
+  },
+  {
+    name: 'Dusseldorf',
+    id: 6,
+  },
+];
