@@ -9,7 +9,7 @@ export const fetchReviewsAction = createAsyncThunk<
   string,
   AsyncThunkConfig
 >(`${NameSpace.ReviewsData}/fetchReviews`, async (id, { extra: api }) => {
-  const { data } = await api.get<Review[]>(`${APIRoute.Review}/${id}`);
+  const { data } = await api.get<Review[]>(`${APIRoute.Comments}/${id}`);
   return data;
 });
 
@@ -20,7 +20,7 @@ export const postReviewAction = createAsyncThunk<
 >(
   `${NameSpace.ReviewsData}/postReview`,
   async ({ comment, rating, offerId }, { extra: api }) => {
-    const { data } = await api.post<Review>(`${APIRoute.Review}/${offerId}`, {
+    const { data } = await api.post<Review>(`${APIRoute.Comments}/${offerId}`, {
       comment,
       rating,
     });

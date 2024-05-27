@@ -4,8 +4,8 @@ import { Routes } from '../../const';
 import PageLayout from '../page-layout/page-layout';
 import MainScreen from '../../pages/main-screen/main-screen';
 
-import MainRouteRedirection from '../main-route-redirection/main-route-redirection';
-import PrivateRouteRoute from '../private-route/private-route';
+import MainRouteRedirection from '../main-route-redirection';
+import PrivateRouteRoute from '../private-route';
 import FavoritesScreen from '../../pages/favourites-screen/favourites-screen';
 import OfferScreen from '../../pages/offer-screen/offer-screen';
 import LoginScreen from '../../pages/login-screen/login-screen';

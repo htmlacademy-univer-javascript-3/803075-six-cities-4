@@ -1,4 +1,4 @@
-import { SortingType } from './const';
+import { ListSortingType } from './const';
 import { Offer } from './types/offer';
 
 export const capitalizeFirstLetter = (word: string) => {
@@ -12,14 +12,14 @@ export const capitalizeFirstLetter = (word: string) => {
 export const formatRating = (rate: number) => `${(rate / 5) * 100}%`;
 
 export const sortOfferFunction: Record<
-  SortingType,
+  ListSortingType,
   (offers: Readonly<Offer[]>) => Offer[]
 > = {
-  [SortingType.Popular]: (offers) => [...offers],
-  [SortingType.LowToHigh]: (offers) =>
+  [ListSortingType.Popularity]: (offers) => [...offers],
+  [ListSortingType.IncreasingPrice]: (offers) =>
     [...offers].sort((a, b) => a.price - b.price),
-  [SortingType.HighToLow]: (offers) =>
+  [ListSortingType.DecreasingPrice]: (offers) =>
     [...offers].sort((a, b) => b.price - a.price),
-  [SortingType.TopRated]: (offers) =>
+  [ListSortingType.Rating]: (offers) =>
     [...offers].sort((a, b) => b.rating - a.rating),
 };
