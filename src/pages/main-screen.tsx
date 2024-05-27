@@ -1,8 +1,8 @@
 import cn from 'classnames';
-import CitiesList from '../../components/cities-list';
-import PlacesToVisit from '../../components/places-to-visit';
-import { getOffers, getSelectedCity } from '../../store';
-import { useAppSelector } from '../../hooks';
+import CitiesList from '../components/cities-list';
+import PlacesToVisit from '../components/places-to-visit';
+import { getOffers, getSelectedCity } from '../store';
+import { useAppSelector } from '../hooks';
 import { useMemo } from 'react';
 
 function MainScreen(): JSX.Element {

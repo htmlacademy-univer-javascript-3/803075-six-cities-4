@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import LoadingScreen from '../loading-screen/loading-screen';
+import LoadingScreen from '../loading-screen';
 import NearbyOffers from '../../components/nearby-offers';
 import {
   getIsNearbyOffersLoading,
@@ -10,7 +10,7 @@ import {
 } from '../../store';
 
 import { useAppSelector } from '../../hooks';
-import ErrorScreen from '../error-screen/error-screen';
+import ErrorScreen from '../error-screen';
 import { useOfferData, usePageInfo } from './hooks';
 import OfferInfo from '../../components/offer-info';
 import { getShuffledNearby } from './utils';
