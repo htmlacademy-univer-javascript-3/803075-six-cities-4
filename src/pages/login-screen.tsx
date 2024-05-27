@@ -1,9 +1,9 @@
 import { useRef } from 'react';
-import { changeCity, getIsSubmittingLogin, loginAction } from '../../store';
+import { changeCity, getIsSubmittingLogin, loginAction } from '../store';
 import { useNavigate } from 'react-router-dom';
-import { Routes, CityName } from '../../const';
+import { Routes, CityName } from '../const';
 import { toast } from 'react-toastify';
-import { useAppDispatch, useAppSelector } from '../../hooks';
+import { useAppDispatch, useAppSelector } from '../hooks';
 
 const REGEX_PASSWORD = /^(?=.*[a-zA-Z])(?=.*\d)[^\s]+$/;
 const PASSWORD_ERROR_MESSAGE =
