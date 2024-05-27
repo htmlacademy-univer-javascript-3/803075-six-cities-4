@@ -1,8 +1,8 @@
 import { Helmet } from 'react-helmet-async';
 import { Outlet, useLocation } from 'react-router-dom';
-import PageBody from '../page-body/page-body';
-import Header from '../header/header';
-import Footer from '../footer/footer';
+import PageBody from '../page-body';
+import Header from '../header';
+import Footer from '../footer';
 import { usePageInfo } from './hooks';
 import { ReactNode } from 'react';
 import { routeNameToPageInfoMap } from '../../const';

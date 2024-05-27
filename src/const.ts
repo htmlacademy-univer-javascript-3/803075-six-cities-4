@@ -4,10 +4,10 @@ export const URL_MARKER_DEFAULT =
 export const URL_MARKER_CURRENT =
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/demo/interactive-map/main-pin.svg';
 
-export enum AuthorizationStatus {
-  Auth = 'AUTH',
-  NoAuth = 'NO_AUTH',
-  Unknown = 'UNKNOWN',
+export enum UserAuthorizationStatus {
+  Authorized = 'Authorized',
+  Unauthorized = 'Unauthorized',
+  Unknown = 'Unknown',
 }
 
 export enum Routes {
@@ -28,23 +28,23 @@ export enum NameSpace {
   ReviewsData = 'REVIEWS_DATA',
 }
 
-export enum Status {
+export enum ReviewStatus {
   Idle = 'idle',
   Loading = 'loading',
   Success = 'success',
   Error = 'error',
 }
 
-export enum TitlePage {
+export enum Title {
   Main = 'Home',
   Favorites = 'Favorites',
   Login = 'Login',
 }
 
-export enum DescriptionPage {
-  Main = 'Description main',
-  Favorites = 'Description favorites',
-  Login = 'Description login',
+export enum Description {
+  Main = 'Main description',
+  Favorites = 'Favorites description',
+  Login = 'Login description',
 }
 
 export enum FavouriteStatus {
@@ -71,18 +71,18 @@ export enum CityName {
 
 export enum APIRoute {
   Offers = '/offers',
-  Review = '/comments',
+  Comments = '/comments',
   Login = '/login',
   Logout = '/logout',
   Nearby = '/nearby',
   Favorite = '/favorite',
 }
 
-export enum SortingType {
-  Popular = 'Popular',
-  LowToHigh = 'Price: low to high',
-  HighToLow = 'Price: high to low',
-  TopRated = 'Top rated first',
+export enum ListSortingType {
+  Popularity = 'Top popularity',
+  IncreasingPrice = 'Price: Increasing',
+  DecreasingPrice = 'Price: Decreasing',
+  Rating = 'Top rating',
 }
 
 export const routeNameToPageInfoMap: Record<
@@ -90,15 +90,15 @@ export const routeNameToPageInfoMap: Record<
   { title: string; description: string }
 > = {
   [Routes.Main]: {
-    title: TitlePage.Main,
-    description: DescriptionPage.Main,
+    title: Title.Main,
+    description: Description.Main,
   },
   [Routes.Favorites]: {
-    title: TitlePage.Favorites,
-    description: DescriptionPage.Favorites,
+    title: Title.Favorites,
+    description: Description.Favorites,
   },
   [Routes.Login]: {
-    title: TitlePage.Login,
-    description: DescriptionPage.Login,
+    title: Title.Login,
+    description: Description.Login,
   },
 };

@@ -6,13 +6,13 @@ import { useAppDispatch, useAppSelector } from '../../hooks';
 
 const useFetchFavorites = () => {
   const dispatch = useAppDispatch();
-  const authCheckedStatus = useAppSelector(getAuthCheckedStatus);
+  const isAuthenticationChecked = useAppSelector(getAuthCheckedStatus);
 
   useEffect(() => {
-    if (authCheckedStatus) {
+    if (isAuthenticationChecked) {
       dispatch(fetchFavouritesAction());
     }
-  }, [dispatch, authCheckedStatus]);
+  }, [dispatch, isAuthenticationChecked]);
 };
 
 export { useFetchFavorites };

@@ -1,4 +1,4 @@
-import { NameSpace, Status } from '../../../const';
+import { NameSpace, ReviewStatus } from '../../../const';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { fetchReviewsAction, postReviewAction } from './api-actions';
@@ -8,7 +8,7 @@ type ReviewsData = {
   reviews: Review[];
   isReviewsLoading: boolean;
   isReviewsStatusSubmitting: boolean;
-  reviewsStatus: Status;
+  reviewsStatus: ReviewStatus;
   hasError: boolean;
 };
 
@@ -16,14 +16,14 @@ const initialState: ReviewsData = {
   reviews: [],
   isReviewsLoading: false,
   isReviewsStatusSubmitting: false,
-  reviewsStatus: Status.Idle,
+  reviewsStatus: ReviewStatus.Idle,
   hasError: false,
 };
 export const reviewsData = createSlice({
   name: NameSpace.ReviewsData,
   initialState,
   reducers: {
-    setReviewsErrorStatus: (state, action: PayloadAction<Status>) => {
+    setReviewsErrorStatus: (state, action: PayloadAction<ReviewStatus>) => {
       state.reviewsStatus = action.payload;
     },
   },
@@ -42,16 +42,16 @@ export const reviewsData = createSlice({
         state.isReviewsLoading = false;
       })
       .addCase(postReviewAction.pending, (state) => {
-        state.reviewsStatus = Status.Loading;
+        state.reviewsStatus = ReviewStatus.Loading;
         state.isReviewsStatusSubmitting = true;
       })
       .addCase(postReviewAction.fulfilled, (state, action) => {
-        state.reviewsStatus = Status.Success;
+        state.reviewsStatus = ReviewStatus.Success;
         state.isReviewsStatusSubmitting = false;
         state.reviews.push(action.payload);
       })
       .addCase(postReviewAction.rejected, (state) => {
-        state.reviewsStatus = Status.Error;
+        state.reviewsStatus = ReviewStatus.Error;
         state.isReviewsStatusSubmitting = false;
       });
   },

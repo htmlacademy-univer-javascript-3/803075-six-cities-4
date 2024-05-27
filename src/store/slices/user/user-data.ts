@@ -1,17 +1,17 @@
-import { AuthorizationStatus, NameSpace } from '../../../const';
+import { UserAuthorizationStatus, NameSpace } from '../../../const';
 import { UserData } from '../../../types/user-data';
 import { createSlice } from '@reduxjs/toolkit';
 import { checkAuthAction, loginAction, logoutAction } from './api-actions';
 
 type UserStatus = {
-  authorizationStatus: AuthorizationStatus;
-  userInfo: UserData | null;
+  userAuthorizationStatus: UserAuthorizationStatus;
+  userData: UserData | null;
   isSubmittingLogin: boolean;
 };
 
 const initialState: UserStatus = {
-  authorizationStatus: AuthorizationStatus.Unknown,
-  userInfo: null,
+  userAuthorizationStatus: UserAuthorizationStatus.Unknown,
+  userData: null,
   isSubmittingLogin: false,
 };
 
@@ -22,29 +22,29 @@ export const userData = createSlice({
   extraReducers(builder) {
     builder
       .addCase(checkAuthAction.fulfilled, (state, action) => {
-        state.authorizationStatus = AuthorizationStatus.Auth;
-        state.userInfo = action.payload;
+        state.userAuthorizationStatus = UserAuthorizationStatus.Authorized;
+        state.userData = action.payload;
       })
       .addCase(checkAuthAction.rejected, (state) => {
-        state.authorizationStatus = AuthorizationStatus.NoAuth;
-        state.userInfo = null;
+        state.userAuthorizationStatus = UserAuthorizationStatus.Unauthorized;
+        state.userData = null;
       })
       .addCase(loginAction.pending, (state) => {
         state.isSubmittingLogin = true;
       })
       .addCase(loginAction.fulfilled, (state, action) => {
         state.isSubmittingLogin = false;
-        state.authorizationStatus = AuthorizationStatus.Auth;
-        state.userInfo = action.payload;
+        state.userAuthorizationStatus = UserAuthorizationStatus.Authorized;
+        state.userData = action.payload;
       })
       .addCase(loginAction.rejected, (state) => {
         state.isSubmittingLogin = false;
-        state.authorizationStatus = AuthorizationStatus.NoAuth;
-        state.userInfo = null;
+        state.userAuthorizationStatus = UserAuthorizationStatus.Unauthorized;
+        state.userData = null;
       })
       .addCase(logoutAction.fulfilled, (state) => {
-        state.authorizationStatus = AuthorizationStatus.NoAuth;
-        state.userInfo = null;
+        state.userAuthorizationStatus = UserAuthorizationStatus.Unauthorized;
+        state.userData = null;
       });
   },
 });

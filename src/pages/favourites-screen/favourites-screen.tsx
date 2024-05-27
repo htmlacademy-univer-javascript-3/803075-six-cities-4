@@ -1,9 +1,9 @@
 import cn from 'classnames';
 import { getFavorites, getIsFavoritesLoading } from '../../store';
 import { useAppSelector } from '../../hooks';
-import Loader from '../../components/loader/loader';
-import EmptyFavorites from '../../components/empty-favourites/empty-favourites';
-import Favourites from '../../components/favourites/favourites';
+import Loader from '../../components/loader';
+import EmptyFavorites from '../../components/empty-favourites';
+import Favourites from '../../components/favourites';
 
 function FavoutitesScreen(): JSX.Element {
   const isFavouritesLoading = useAppSelector(getIsFavoritesLoading);

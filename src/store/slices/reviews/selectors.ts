@@ -1,4 +1,4 @@
-import { NameSpace, Status } from '../../../const';
+import { NameSpace, ReviewStatus } from '../../../const';
 import { Review } from '../../../types/review';
 
 import { State } from '../../../types/state';
@@ -12,7 +12,7 @@ export const getIsReviewsLoading = (state: State): boolean =>
 export const getIsReviewsStatusSubmitting = (state: State): boolean =>
   state[NameSpace.ReviewsData].isReviewsStatusSubmitting;
 
-export const getReviewsHasError = (state: State): Status =>
+export const getReviewsHasError = (state: State): ReviewStatus =>
   state[NameSpace.ReviewsData].reviewsStatus;
 
 export const getHasError = (state: State): boolean =>
